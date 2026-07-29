@@ -1,6 +1,6 @@
 //! Handles UI displaying mortar values
 //! - azimuth, elevation, range
-class RAD_RadiationInfo : SCR_InfoDisplayExtended
+/*class RAD_RadiationInfo : SCR_InfoDisplayExtended
 {
 	protected ref RAD_RadiationInfoWidgets m_Widgets = new RAD_RadiationInfoWidgets();
 
@@ -14,3 +14,4 @@ class RAD_RadiationInfo : SCR_InfoDisplayExtended
 		m_Widgets.Init(m_wRoot);
 	}
 }
+*/

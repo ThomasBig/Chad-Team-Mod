@@ -10,13 +10,24 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 		return true;
 	}
 	
+	protected void PlaySound()
+	{	
+		SoundComponent soundComp = SoundComponent.Cast(GetParent().FindComponent(SoundComponent));
+		 
+		if (!soundComp)
+		    return;
+		 
+		soundComp.SoundEvent("Radiation");
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	//! Callback when an entity enters this DamageArea this frame
 	//! \param[in] entity
 	override void OnAreaEntered(notnull IEntity entity)
 	{
 		Print("it enters");
-		/*SCR_ExtendedDamageManagerComponent damageManagerExt = SCR_ExtendedDamageManagerComponent.Cast(SCR_DamageManagerComponent.GetDamageManager(entity));
+		PlaySound();
+		SCR_ExtendedDamageManagerComponent damageManagerExt = SCR_ExtendedDamageManagerComponent.Cast(SCR_DamageManagerComponent.GetDamageManager(entity));
 		if (!damageManagerExt)
 			return;
 		
@@ -26,7 +37,7 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 			return;
 		
 		array<ref SCR_PersistentDamageEffect> damageEffects = {};
-		damageManager.FindAllDamageEffectsOfType(GetDamageEffect().Type(), damageEffects);
+		damageManagerExt.FindAllDamageEffectsOfType(GetDamageEffect().Type(), damageEffects);
 		
 		map<HitZone, SCR_PersistentDamageEffect> allHitzonesAffected = new map<HitZone, SCR_PersistentDamageEffect>();
 		foreach (SCR_PersistentDamageEffect dmgEffect : damageEffects)
@@ -36,20 +47,20 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 		
 		foreach (HitZone hitZone : allHitZones)
 		{
-			SCR_RadiationDamageEffect radiationDamage;
+			RAD_RadiationDamageEffect radiationDamage;
 			if (!allHitzonesAffected.Contains(hitZone))
 			{
-				radiationDamage = new SCR_RadiationDamageEffect;
+				radiationDamage = new RAD_RadiationDamageEffect;
 				radiationDamage.SetAffectedHitZone(hitZone);
-				AddDamage(radiationDamage);
+				damageManagerExt.AddDamageEffect(radiationDamage);
 			}
 			else
 			{
-				radiationDamage = allHitzonesAffected.Get(hitZone);
+				radiationDamage = RAD_RadiationDamageEffect.Cast(allHitzonesAffected.Get(hitZone));
 			}
 				
-			radiationDamage.AddRadiationAreas(GetOwner());
-		}*/
+			radiationDamage.AddRadiationAreas(GetParent());
+		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -57,7 +68,7 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 	//! \param[in] entity
 	override void OnAreaExit(IEntity entity)
 	{
-		/*SCR_ExtendedDamageManagerComponent damageManagerExt = SCR_ExtendedDamageManagerComponent.Cast(SCR_DamageManagerComponent.GetDamageManager(entity));
+		SCR_ExtendedDamageManagerComponent damageManagerExt = SCR_ExtendedDamageManagerComponent.Cast(SCR_DamageManagerComponent.GetDamageManager(entity));
 		if (!damageManagerExt)
 			return;
 		
@@ -67,8 +78,8 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 			return;
 		
 		array<ref SCR_PersistentDamageEffect> damageEffects = {};
-		if (damageManager.FindAllDamageEffectsOfType(GetDamageEffect().Type(), damageEffects) < 1)
-			return false;
+		if (damageManagerExt.FindAllDamageEffectsOfType(GetDamageEffect().Type(), damageEffects) < 1)
+			return;
 		
 		map<HitZone, SCR_PersistentDamageEffect> allHitzonesAffected = new map<HitZone, SCR_PersistentDamageEffect>();
 		foreach (SCR_PersistentDamageEffect dmgEffect : damageEffects)
@@ -78,13 +89,13 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 		
 		foreach (HitZone hitZone : allHitZones)
 		{
-			SCR_RadiationDamageEffect radiationDamage;
+			RAD_RadiationDamageEffect radiationDamage;
 			if (allHitzonesAffected.Contains(hitZone))
 			{
-				radiationDamage = allHitzonesAffected.Get(hitZone);
-				radiationDamage.RemoveRadiationArea(GetOwner());
+				radiationDamage = RAD_RadiationDamageEffect.Cast(allHitzonesAffected.Get(hitZone));
+				radiationDamage.RemoveRadiationArea(GetParent());
 			}
-		}*/
+		}
 	}
 	
 	//------------------------------------------------------------------------------------------------

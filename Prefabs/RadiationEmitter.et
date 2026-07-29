@@ -1,6 +1,8 @@
 GenericEntity {
  ID "69FA90518C9A3A51"
  components {
+  SoundComponent "{69FAA3FDA190BD2B}" {
+  }
   SCR_DamageAreaComponent "{69FACA6BF0FAB073}" {
    DamageAreas {
     RAD_RadiationDamageArea "{69FACA6BF99FB37F}" {
