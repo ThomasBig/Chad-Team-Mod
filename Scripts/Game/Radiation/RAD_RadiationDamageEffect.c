@@ -4,6 +4,7 @@ class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 	protected float m_fRadiationPoisoningLevel = 0; //! Amount of accumulated radiation damage consumed by the hit zone (abstract unit)
 	protected float m_fRadiationPoisoningLevelDecay = 5; // Amount of radiation damage (abstract unit) the body self repair per seconds
 	protected const float DAMAGE_PER_POISON_LEVEL = 1;
+	protected const float EXPOSURE_PER_DISTACE = 1; 
 	
 	protected IEntity m_lastInstigator;
 	
@@ -22,9 +23,14 @@ class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 			array<GameMaterial> tracedMaterials = {};
 			array<float> tracedDistances = {}; 
 			sourceTrace.TraceFromEntityToEntity(source.GetParent(), dmgManager.GetOwner(), tracedEntities, tracedMaterials, tracedDistances);
+			if(tracedEntities.IsEmpty())
+				continue;
+			
 			m_lastInstigator = source.GetParent();
 			
-			float exposureLevel = 2 * timeSlice; //db TODO: Change this for caluclation based on the trace
+			int soucreTraceIndex = tracedEntities.Get(tracedEntities.Count()-1);
+			int distaceToSource = tracedDistances.Get(soucreTraceIndex); // units?
+			float exposureLevel = EXPOSURE_PER_DISTACE * distaceToSource * timeSlice; //db TODO: Change this for caluclation based on the trace
 			
 			m_fRadiationPoisoningLevel += exposureLevel;
 		}
