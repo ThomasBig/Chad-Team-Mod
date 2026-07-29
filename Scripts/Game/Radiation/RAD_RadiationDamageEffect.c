@@ -1,6 +1,6 @@
 class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 {
-	ref array<IEntity> m_aRadiationAreas = {};
+	ref array<RAD_RadiationDamageArea> m_aRadiationAreas = {};
 	protected float m_fRadiationPoisoningLevel = 0; //! Amount of accumulated radiation damage consumed by the hit zone (abstract unit)
 	protected float m_fRadiationPoisoningLevelDecay = 5; // Amount of radiation damage (abstract unit) the body self repair per seconds
 	
@@ -12,12 +12,12 @@ class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 		
 		HitZone affectedHitZone = GetAffectedHitZone();
 		
-		foreach (IEntity source : m_aRadiationAreas)
+		foreach (RAD_RadiationDamageArea source : m_aRadiationAreas)
 		{
 			SCR_Trace sourceTrace = new SCR_Trace();
 			array<IEntity> tracedEntities = {};
 			array<GameMaterial> tracedMaterials = {};
-			sourceTrace.TraceFromEntityToHitzone(source, dmgManager.GetOwner(), affectedHitZone, tracedEntities, tracedMaterials);
+			sourceTrace.TraceFromEntityToHitzone(source.GetParent(), dmgManager.GetOwner(), affectedHitZone, tracedEntities, tracedMaterials);
 		}
 		
 		// Radiation Poisoning Decay
@@ -25,17 +25,17 @@ class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void AddRadiationAreas(notnull IEntity entityArea)
+	void AddRadiationAreas(notnull RAD_RadiationDamageArea area)
 	{
-		if (!m_aRadiationAreas.Contains(entityArea))
+		if (!m_aRadiationAreas.Contains(area))
 		{
-			m_aRadiationAreas.Insert(entityArea);
+			m_aRadiationAreas.Insert(area);
 		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void RemoveRadiationArea(notnull IEntity entityArea)
+	void RemoveRadiationArea(notnull RAD_RadiationDamageArea area)
 	{
-		m_aRadiationAreas.RemoveItem(entityArea);
+		m_aRadiationAreas.RemoveItem(area);
 	}
 }

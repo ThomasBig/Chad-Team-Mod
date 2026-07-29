@@ -59,7 +59,7 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 				radiationDamage = RAD_RadiationDamageEffect.Cast(allHitzonesAffected.Get(hitZone));
 			}
 				
-			radiationDamage.AddRadiationAreas(GetParent());
+			radiationDamage.AddRadiationAreas(this);
 		}
 	}
 	
@@ -93,7 +93,7 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 			if (allHitzonesAffected.Contains(hitZone))
 			{
 				radiationDamage = RAD_RadiationDamageEffect.Cast(allHitzonesAffected.Get(hitZone));
-				radiationDamage.RemoveRadiationArea(GetParent());
+				radiationDamage.RemoveRadiationArea(this);
 			}
 		}
 	}
