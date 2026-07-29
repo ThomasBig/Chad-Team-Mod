@@ -1,0 +1,8 @@
+GameProject {
+ ID "ChadTeamMod"
+ GUID "69FA8680BD78EC59"
+ TITLE "Chad Team Mod"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
