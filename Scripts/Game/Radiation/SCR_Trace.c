@@ -1,4 +1,4 @@
-modded class SCR_Trace : Managed
+class SCR_Trace
 {
 	//------------------------------------------------------------------------------------------------
 	//! Trace from entity to a given hitzone and gets all the traced entities
@@ -27,7 +27,7 @@ modded class SCR_Trace : Managed
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected IEntity ExecuteTrace(notnull IEntity entity, notnull IEntity player, notnull vector hitzonePos, out GameMaterial material)
+	protected IEntity ExecuteTrace(notnull IEntity entity, notnull IEntity player, vector hitzonePos, out GameMaterial material)
 	{		
 		TraceParam param = new TraceParam();
 		param.Flags = TraceFlags.ENTS;
