@@ -4,8 +4,13 @@ SCR_BaseGameMode GameMode_CaptureAndHold1 : "{26758D3CAD920EF2}Prefabs/MP/Modes/
 SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
  coords 5844.67 4.846 9840.194
 }
-GenericEntity {
- coords 5780.903 5.247 9684.786
+$grp GenericEntity {
+ {
+  coords 5780.903 5.247 9684.786
+ }
+ {
+  coords 5784.905 4.563 9684.035
+ }
 }
 $grp GenericEntity : "{18BF3CC73B1D2E21}Prefabs/Props/Signs/Industrial/RadiationSign.et" {
  {
@@ -109,6 +114,9 @@ $grp GenericEntity : "{18BF3CC73B1D2E21}Prefabs/Props/Signs/Industrial/Radiation
  {
   coords 5897.558 5.462 9726.588
  }
+}
+GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
+ coords 5785.062 5.023 9682.313
 }
 $grp GenericEntity : "{DA34DC311BF6D0CB}Prefabs/Structures/Signs/Military/SignRectangle_01_140x100/Sign_Warzone_USSR_01.et" {
  {

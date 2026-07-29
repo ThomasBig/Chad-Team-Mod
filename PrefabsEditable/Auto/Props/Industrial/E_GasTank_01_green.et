@@ -1,0 +1,37 @@
+GenericEntity : "{CC8D07933AD0B07E}Prefabs/Props/Industrial/GasTank_01_red.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "MediumDestructible"
+  }
+  SCR_EditableEntityComponent "{58AAE805BD4FFC63}" : "{996046FE206C699A}Prefabs/Editor/Components/Default_SCR_EditableEntityComponent.ct" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "#AR-EditableEntity_GasTank_01_red_Name"
+    m_Image "{16C0CDA858CE7292}UI/Textures/EditorPreviews/Auto/Props/Industrial/E_GasTank_01_red.edds"
+    m_aAuthoredLabels {
+    }
+    m_aAutoLabels {
+     THEME_INDUSTRIAL ENTITYTYPE_OBJECT SIZE_XS
+    }
+   }
+  }
+  SCR_PreviewEntityComponent "{58AAE805BD4E0E9A}" : "{6CADA7A88A6265FD}Prefabs/Editor/Components/PreviewEntityComponentClass.ct" {
+   m_bRuntime 0
+   m_aEntries {
+    SCR_BasePreviewEntry "{69FAA3FF1E2CAB73}" {
+     m_iParentID -1
+     m_Mesh "{00417CEBAFDB12F3}Assets/Props/Industrial/GasTank_01/GasTank_01.xob"
+     m_Flags 0
+     m_Shape MESH
+     m_iPivotID ""
+     m_vScale 1 1 1
+     m_vPosition 0 0 0
+     m_vAngles 0 0 0
+    }
+   }
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
+ }
+}
