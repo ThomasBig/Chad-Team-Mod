@@ -2,6 +2,9 @@ GenericEntity {
  ID "69FA90518C9A3A51"
  components {
   SoundComponent "{69FAA3FDA190BD2B}" {
+   Filenames {
+    "{54008AA0D854030B}Sounds/Radiation.acp"
+   }
   }
   SCR_DamageAreaComponent "{69FACA6BF0FAB073}" {
    DamageAreas {

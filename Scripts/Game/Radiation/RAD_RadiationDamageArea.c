@@ -17,7 +17,7 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 		if (!soundComp)
 		    return;
 		 
-		soundComp.SoundEvent("Radiation");
+		soundComp.SoundEvent("SOUND_RADIATION");
 	}
 	
 	//------------------------------------------------------------------------------------------------

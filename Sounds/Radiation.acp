@@ -1,10 +1,60 @@
 AudioClass {
+ sounds {
+  SoundClass "2057" {
+   id 2057
+   name "SOUND_RADIATION"
+   version 5
+   tl 176 -96
+   ins {
+    ConnectionsClass "con:64" {
+     id 64
+     links {
+      ConnectionClass "1028:65" {
+       id 1028
+       port 65
+      }
+     }
+    }
+   }
+   outState 3083
+   outStatePort 79879
+  }
+ }
+ mixers {
+  MixerClass "3083" {
+   id 3083
+   name "OutputState 3"
+   version 4
+   tl 416 -96
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass "con:79879" {
+     id 79879
+     links {
+      ConnectionClass "2057:65" {
+       id 2057
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    8192 0
+   }
+   inputs {
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb_OBSOLETE" "VON_Reverb_Small" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "WPN_TravelingProjectile" "Dialog_Delay_Exterior" "SFX_Reverb_InCabin" "VON_Reverb_Medium" "VON_Reverb_Large"
+   }
+   visiblePorts {
+    79879
+   }
+  }
+ }
  banks_local {
   BankLocalClass "1028" {
    id 1028
-   name "Radiation"
+   name "RadiationBank"
    version 7
-   tl 22.128 -81.154
+   tl -48 -96
    Samples {
     AudioBankSampleClass "Radiation-sound-extreme.wav" {
      Filename "{61D2065165CE1227}Sounds/Radiation-sound-extreme.wav"
