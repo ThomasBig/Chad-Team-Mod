@@ -1,4 +1,4 @@
-class RAD_RadiationDamageEffect : PersistentDamageEffect
+class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 {
 	ref array<IEntity> m_aRadiationAreas = {};
 	protected float m_fRadiationPoisonLevel = 0; //! Amount of radiation damage consumed by the hit zone 
@@ -8,6 +8,14 @@ class RAD_RadiationDamageEffect : PersistentDamageEffect
 	{
 		if (!dmgManager)
 			return;
+		
+		HitZone affectedHitZone = GetAffectedHitZone();
+		
+		foreach (IEntity source : m_aRadiationAreas)
+		{
+			SCR_Trace sourceTrace = new SCR_Trace();
+			
+		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
