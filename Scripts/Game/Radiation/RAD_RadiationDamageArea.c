@@ -10,12 +10,23 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 		return true;
 	}
 	
+	protected void PlaySound()
+	{	
+		SoundComponent soundComp = SoundComponent.Cast(GetParent().FindComponent(SoundComponent));
+		 
+		if (!soundComp)
+		    return;
+		 
+		soundComp.SoundEvent("Radiation");
+	}
+	
 	//------------------------------------------------------------------------------------------------
 	//! Callback when an entity enters this DamageArea this frame
 	//! \param[in] entity
 	override void OnAreaEntered(notnull IEntity entity)
 	{
 		Print("it enters");
+		PlaySound();
 		/*SCR_ExtendedDamageManagerComponent damageManagerExt = SCR_ExtendedDamageManagerComponent.Cast(SCR_DamageManagerComponent.GetDamageManager(entity));
 		if (!damageManagerExt)
 			return;

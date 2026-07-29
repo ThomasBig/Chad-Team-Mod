@@ -110,6 +110,20 @@ $grp GenericEntity : "{18BF3CC73B1D2E21}Prefabs/Props/Signs/Industrial/Radiation
   coords 5897.558 5.462 9726.588
  }
 }
+GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
+ components {
+  SCR_DamageAreaComponent "{69FACA6BF0FAB073}" {
+   DamageAreas {
+    SCR_RadiationDamageArea "{69FAA3FCB64CC00B}" {
+    }
+   }
+  }
+ }
+ coords 5784.904 4.974 9682.193
+}
+GenericEntity : "{2F4E1AFCF26EAA4F}Prefabs/RadiationEffect.et" {
+ coords 5784.905 4.563 9684.035
+}
 $grp GenericEntity : "{DA34DC311BF6D0CB}Prefabs/Structures/Signs/Military/SignRectangle_01_140x100/Sign_Warzone_USSR_01.et" {
  {
   components {

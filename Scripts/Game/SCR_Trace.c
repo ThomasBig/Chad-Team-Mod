@@ -1,4 +1,4 @@
-modded class SCR_Trace : Managed
+/*modded class SCR_Trace
 {
 	//------------------------------------------------------------------------------------------------
 	//! Trace from entity to a given hitzone and gets all the traced entities
@@ -47,4 +47,4 @@ modded class SCR_Trace : Managed
 		
 		return null;
 	}
-}
+}*/
