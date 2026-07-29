@@ -6,6 +6,9 @@ GenericEntity {
     "{54008AA0D854030B}Sounds/Radiation.acp"
    }
   }
+  MeshObject "{69FADD0948EBE671}" {
+   Object "{7B8A4BFCB5F07C82}Assets/Props/Industrial/BarrelMetal_01/Dst/BarrelMetal_01_Nocover_dst_01.xob"
+  }
   SCR_DamageAreaComponent "{69FACA6BF0FAB073}" {
    DamageAreas {
     RAD_RadiationDamageArea "{69FACA6BF99FB37F}" {
@@ -13,8 +16,10 @@ GenericEntity {
       Radius 20
      }
      m_eDamageType RADIATION
-     m_DamageEffect SCR_BleedingDamageEffect "{69FACA6C1508604F}" {
+     m_fDamageValue 5
+     m_DamageEffect RAD_RadiationDamageEffect "{69FADD0942EFA371}" {
      }
+     m_fEmissionRate 10
     }
    }
   }

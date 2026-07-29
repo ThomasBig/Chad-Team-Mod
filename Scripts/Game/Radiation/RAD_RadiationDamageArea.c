@@ -96,6 +96,8 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 				radiationDamage.RemoveRadiationArea(this);
 			}
 		}
+		
+		m_SoundHandle.
 	}
 	
 	//------------------------------------------------------------------------------------------------
