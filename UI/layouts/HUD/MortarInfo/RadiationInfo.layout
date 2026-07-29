@@ -1,0 +1,51 @@
+FrameWidgetClass {
+ Name "MortarInfoLayout"
+ Slot FrameWidgetSlot "{64DAB54E28200DB8}" {
+  Anchor 0 0 1 1
+  SizeX 0
+  OffsetRight 0
+  SizeY 0
+  OffsetBottom 0
+ }
+ components {
+  SCR_WidgetExportRuleRoot "{5DA0E2E1CF09FB42}" {
+   DestinationPath "{CDAA6326DEC2E376}scripts/Game/UI/HUD/Radiation"
+   ScriptAddon "$ChadTeamMod:"
+   ScriptClassNamePrefix "RAD_"
+  }
+ }
+ {
+  FrameWidgetClass "{69FAA3EF5E414898}" {
+   Name "Overlay"
+   Slot FrameWidgetSlot "{5DA0E2E515F386B2}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+   {
+    ImageWidgetClass "{69FAA3EF6C525F69}" {
+     Name "m_Image"
+     Slot FrameWidgetSlot "{69FAA3EF6C525F70}" {
+      PositionX 1717.92
+      OffsetLeft 1717.92
+      PositionY 868.539
+      OffsetTop 868.539
+      SizeX 186.217
+      OffsetRight -1904.14
+      SizeY 183.272
+      OffsetBottom -1051.81
+     }
+     Texture "{EDEF072DCD1A1783}Assets/UI/radiation.edds"
+     Size 200 200
+     "Blend Mode" Additive
+    }
+   }
+  }
+ }
+}
