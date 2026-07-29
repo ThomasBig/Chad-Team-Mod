@@ -1,0 +1,4 @@
+MatPBRBasic {
+ BCRMap "{F4322674AA0DBF68}Assets/Props/Signs/Industrial/Data/radiation sign.edds"
+ NMOMap "{C23FBCEFBB0A1C1A}Assets/Props/Signs/Industrial/Data/SignIndustrial_02_NMO.edds"
+}

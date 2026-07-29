@@ -1,0 +1,127 @@
+SCR_BaseGameMode GameMode_CaptureAndHold1 : "{26758D3CAD920EF2}Prefabs/MP/Modes/CaptureAndHold/GameMode_CaptureAndHold.et" {
+ coords 5842.543 4.9 9842.812
+}
+SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 5844.67 4.846 9840.194
+}
+$grp GenericEntity : "{18BF3CC73B1D2E21}Prefabs/Props/Signs/Industrial/RadiationSign.et" {
+ {
+  coords 5778.297 9.93 9698.534
+  angles 0 270 0
+  scale 5
+ }
+ {
+  coords 5792.278 9.659 9697.236
+  angles 0 90 0
+  scale 5
+ }
+ {
+  coords 5785.145 9.745 9690.746
+  angles 0 180 0
+  scale 5
+ }
+ {
+  coords 5785.483 9.706 9704.764
+  scale 5
+ }
+ {
+  coords 5811.322 10.326 9696.869
+  angles 0 90 0
+  scale 5
+ }
+ {
+  coords 5804.527 10.373 9704.396
+  scale 5
+ }
+ {
+  coords 5797.341 10.597 9698.167
+  angles 0 270 0
+  scale 5
+ }
+ {
+  coords 5804.189 10.412 9690.379
+  angles 0 180 0
+  scale 5
+ }
+ {
+  coords 5810.146 9.936 9667.655
+  angles 0 90 0
+  scale 5
+ }
+ {
+  coords 5803.351 9.983 9674.894
+  scale 5
+ }
+ {
+  coords 5796.123 10.172 9668.018
+  angles 0 270 0
+  scale 5
+ }
+ {
+  coords 5803.014 9.89 9660.857
+  angles 0 180 0
+  scale 5
+ }
+ {
+  coords 5792.845 9.97 9668.435
+  angles 0 90 0
+  scale 5
+ }
+ {
+  coords 5786.05 10.217 9674.604
+  scale 5
+ }
+ {
+  coords 5778.813 9.671 9668.946
+  angles 0 -78.205 0
+  scale 5
+ }
+ {
+  coords 5785.712 9.747 9660.556
+  angles 0 180 0
+  scale 5
+ }
+ {
+  coords 5822.989 19.528 9789.353
+  angles 0 90 0
+  scale 5
+ }
+ {
+  coords 5822.989 19.528 9783.795
+  angles 0 90 0
+  scale 5
+ }
+ {
+  coords 5795.042 15.941 9788.299
+  angles 0 270 0
+  scale 5
+ }
+ {
+  coords 5839.834 6.221 9829.55
+  angles 0 180 0
+ }
+ {
+  coords 5832.522 6.228 9827.13
+ }
+ {
+  coords 5897.558 5.462 9726.588
+ }
+}
+$grp GenericEntity : "{DA34DC311BF6D0CB}Prefabs/Structures/Signs/Military/SignRectangle_01_140x100/Sign_Warzone_USSR_01.et" {
+ {
+  components {
+   Hierarchy "{5CB0D996E74F3633}" {
+    Enabled 1
+   }
+  }
+  coords 5832.497 5.329 9827.065
+ }
+ {
+  components {
+   Hierarchy "{5CB0D996E74F3633}" {
+    Enabled 1
+   }
+  }
+  coords 5897.533 4.563 9726.523
+ }
+}
