@@ -1,0 +1,18 @@
+GenericEntity {
+ ID "69FA90518C9A3A51"
+ components {
+  SCR_DamageAreaComponent "{69FACA6BF0FAB073}" {
+   DamageAreas {
+    RAD_RadiationDamageArea "{69FACA6BF99FB37F}" {
+     "Area shape" DamageAreaShapeSphere "{69FACA6BFCC809FF}" {
+      Radius 20
+     }
+     m_eDamageType RADIATION
+     m_DamageEffect SCR_BleedingDamageEffect "{69FACA6C1508604F}" {
+     }
+    }
+   }
+  }
+ }
+ coords 1958.723 13.785 1883.896
+}

@@ -1,5 +1,4 @@
-
-class SCR_RadiationDamageArea : SCR_DamageArea
+class RAD_RadiationDamageArea : SCR_DamageArea
 {
 	[Attribute()]
 	float m_fEmissionRate;
@@ -16,6 +15,7 @@ class SCR_RadiationDamageArea : SCR_DamageArea
 	//! \param[in] entity
 	override void OnAreaEntered(notnull IEntity entity)
 	{
+		Print("it enters");
 		/*SCR_ExtendedDamageManagerComponent damageManagerExt = SCR_ExtendedDamageManagerComponent.Cast(SCR_DamageManagerComponent.GetDamageManager(entity));
 		if (!damageManagerExt)
 			return;
@@ -92,4 +92,9 @@ class SCR_RadiationDamageArea : SCR_DamageArea
 	{
 		return m_fEmissionRate;
 	}
+}
+
+modded enum EDamageType
+{
+	RADIATION,
 }
