@@ -1,0 +1,20 @@
+MetaFileClass {
+ Name "{F45542DD36EFFD7C}Sounds/Radiation-sound-extreme.snd"
+ Configurations {
+  SNDResourceClass PC {
+   AudioFile "{61D2065165CE1227}Sounds/Radiation-sound-extreme.wav"
+   TargetFormat WAV
+   DynamicVolume 1
+  }
+  SNDResourceClass XBOX_ONE : PC {
+  }
+  SNDResourceClass XBOX_SERIES : PC {
+  }
+  SNDResourceClass PS4 : PC {
+  }
+  SNDResourceClass PS5 : PC {
+  }
+  SNDResourceClass HEADLESS : PC {
+  }
+ }
+}

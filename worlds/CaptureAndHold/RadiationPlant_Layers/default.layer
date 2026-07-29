@@ -4,6 +4,9 @@ SCR_BaseGameMode GameMode_CaptureAndHold1 : "{26758D3CAD920EF2}Prefabs/MP/Modes/
 SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
  coords 5844.67 4.846 9840.194
 }
+GenericEntity {
+ coords 5780.903 5.247 9684.786
+}
 $grp GenericEntity : "{18BF3CC73B1D2E21}Prefabs/Props/Signs/Industrial/RadiationSign.et" {
  {
   coords 5778.297 9.93 9698.534

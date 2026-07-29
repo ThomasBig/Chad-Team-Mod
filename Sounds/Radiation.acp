@@ -1,0 +1,16 @@
+AudioClass {
+ banks_local {
+  BankLocalClass "1028" {
+   id 1028
+   name "Radiation"
+   version 7
+   tl 22.128 -81.154
+   Samples {
+    AudioBankSampleClass "Radiation-sound-extreme.wav" {
+     Filename "{61D2065165CE1227}Sounds/Radiation-sound-extreme.wav"
+    }
+   }
+  }
+ }
+ version 2
+}
