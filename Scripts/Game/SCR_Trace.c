@@ -1,4 +1,4 @@
-class SCR_Trace
+modded class SCR_Trace : Managed
 {
 	//------------------------------------------------------------------------------------------------
 	//! Trace from entity to a given hitzone and gets all the traced entities
@@ -6,7 +6,7 @@ class SCR_Trace
 	//! \param[in] player
 	//! \param[in] hitzone
 	//! \param[out] tracedEntities
-	void TraceFromEntityToHitzone(notnull IEntity radiationPoint, notnull IEntity player, notnull HitZone hitzone, out array<IEntity> tracedEntities)
+	void TraceFromEntityToHitzone(notnull IEntity radiationPoint, notnull IEntity player, notnull HitZone hitzone, out array<IEntity> tracedEntities, out array<GameMaterial> tracedMaterials)
 	{
 		tracedEntities.Clear();
 		
@@ -14,17 +14,20 @@ class SCR_Trace
 		int outBoneIndex, nodeId;
 		hitzone.TryGetColliderDescription(player, -1, outMat, outBoneIndex, nodeId);
 		
-		IEntity tracedEntity = ExecuteTrace(radiationPoint, player, outMat[3]);
+		GameMaterial material;
+		IEntity tracedEntity = ExecuteTrace(radiationPoint, player, outMat[3], material);
+		tracedMaterials.Insert(material);
 		
-		while (tracedEntity != player || tracedEntity != null)
+		while (tracedEntity != null || tracedEntity != player)
 		{
-			tracedEntity = ExecuteTrace(tracedEntity, player, outMat[3]);
+			tracedEntity = ExecuteTrace(tracedEntity, player, outMat[3], material);
 			tracedEntities.Insert(tracedEntity);
+			tracedMaterials.Insert(material);
 		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected IEntity ExecuteTrace(notnull IEntity entity, notnull IEntity player, notnull vector hitzonePos)
+	protected IEntity ExecuteTrace(notnull IEntity entity, notnull IEntity player, notnull vector hitzonePos, out GameMaterial material)
 	{		
 		TraceParam param = new TraceParam();
 		param.Flags = TraceFlags.ENTS;
@@ -34,9 +37,13 @@ class SCR_Trace
 		param.End = hitzonePos;
 		
 		World world = player.GetWorld();
-		
-		if (world.TraceMove(param) < 1)
+		float traceDistance = world.TraceMove(param);
+		if (traceDistance < 1)
+		{
+			Print(traceDistance);	
+			material = param.SurfaceProps;
 			return param.TraceEnt;
+		}
 		
 		return null;
 	}
