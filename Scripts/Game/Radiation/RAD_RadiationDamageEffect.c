@@ -2,7 +2,7 @@ class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 {
 	ref array<RAD_RadiationDamageArea> m_aRadiationAreas = {};
 	protected float m_fRadiationPoisoningLevel = 0; //! Amount of accumulated radiation damage consumed by the hit zone (abstract unit)
-	protected float m_fRadiationPoisoningLevelDecay = 5; // Amount of radiation damage (abstract unit) the body self repair per seconds
+	protected float m_fRadiationPoisoningLevelDecay = 0; // Amount of radiation damage (abstract unit) the body self repair per seconds
 	protected const float DAMAGE_PER_POISON_LEVEL = 0;
 	protected const float EXPOSURE_PER_DISTACE = 1; 
 	
