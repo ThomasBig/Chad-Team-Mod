@@ -115,8 +115,16 @@ $grp GenericEntity : "{18BF3CC73B1D2E21}Prefabs/Props/Signs/Industrial/Radiation
   coords 5897.558 5.462 9726.588
  }
 }
-GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
- coords 5785.062 5.023 9682.313
+$grp GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
+ {
+  coords 5789.302 5.023 9682.313
+ }
+ {
+  coords 5896.162 4.562 9727.844
+ }
+ {
+  coords 5809.569 5.088 9793.979
+ }
 }
 $grp GenericEntity : "{DA34DC311BF6D0CB}Prefabs/Structures/Signs/Military/SignRectangle_01_140x100/Sign_Warzone_USSR_01.et" {
  {
