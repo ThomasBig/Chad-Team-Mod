@@ -6,41 +6,49 @@ class SCR_Trace
 	//! \param[in] player
 	//! \param[in] hitzone
 	//! \param[out] tracedEntities
-	void TraceFromEntityToHitzone(notnull IEntity radiationPoint, notnull IEntity player, notnull HitZone hitzone, out array<IEntity> tracedEntities, out array<GameMaterial> tracedMaterials)
+	void TraceFromEntityToEntity(notnull IEntity radiationPoint, notnull IEntity player, out array<IEntity> tracedEntities, out array<GameMaterial> tracedMaterials, out array<float> distances)
 	{
 		tracedEntities.Clear();
 		
-		vector outMat[4];
-		int outBoneIndex, nodeId;
-		hitzone.TryGetColliderDescription(player, -1, outMat, outBoneIndex, nodeId);
+		SCR_CharacterDamageManagerComponent damageComp = SCR_CharacterDamageManagerComponent.Cast(player.FindComponent(SCR_CharacterDamageManagerComponent));
 		
 		GameMaterial material;
-		IEntity tracedEntity = ExecuteTrace(radiationPoint, player, outMat[3], material);
-		tracedMaterials.Insert(material);
+		float distance;
+		vector playerPos = player.GetOrigin();
+		IEntity tracedEntity;
 		
-		while (tracedEntity != null || tracedEntity != player)
+		tracedEntity = ExecuteTrace(radiationPoint, playerPos, material, distance);
+		if (!tracedEntity)
 		{
-			tracedEntity = ExecuteTrace(tracedEntity, player, outMat[3], material);
+			distances.Insert(distance);
+			return;
+		}
+		
+		tracedMaterials.Insert(material);
+
+		while (tracedEntity != null)
+		{
+			tracedEntity = ExecuteTrace(tracedEntity, playerPos, material, distance);
 			tracedEntities.Insert(tracedEntity);
 			tracedMaterials.Insert(material);
+			distances.Insert(distance);
 		}
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	protected IEntity ExecuteTrace(notnull IEntity entity, notnull IEntity player, vector hitzonePos, out GameMaterial material)
+	protected IEntity ExecuteTrace(notnull IEntity entity, vector playerPos, out GameMaterial material, out float distance)
 	{		
 		TraceParam param = new TraceParam();
 		param.Flags = TraceFlags.ENTS;
 		param.LayerMask = EPhysicsLayerDefs.Projectile;
 		param.Exclude = entity;
 		param.Start = entity.GetOrigin();
-		param.End = hitzonePos;
+		param.End = playerPos;
 		
-		World world = player.GetWorld();
-		float traceDistance = world.TraceMove(param);
-		if (traceDistance < 1)
+		World world = entity.GetWorld();
+		distance = world.TraceMove(param);
+		if (distance < 1)
 		{
-			Print(traceDistance);	
 			material = param.SurfaceProps;
 			return param.TraceEnt;
 		}
