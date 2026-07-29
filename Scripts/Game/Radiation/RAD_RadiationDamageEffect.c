@@ -20,10 +20,11 @@ class RAD_RadiationDamageEffect : SCR_PersistentDamageEffect
 			SCR_Trace sourceTrace = new SCR_Trace();
 			array<IEntity> tracedEntities = {};
 			array<GameMaterial> tracedMaterials = {};
-			sourceTrace.TraceFromEntityToHitzone(source.GetParent(), dmgManager.GetOwner(), affectedHitZone, tracedEntities, tracedMaterials);
+			array<float> tracedDistances = {}; 
+			sourceTrace.TraceFromEntityToEntity(source.GetParent(), dmgManager.GetOwner(), tracedEntities, tracedMaterials, tracedDistances);
 			m_lastInstigator = source.GetParent();
 			
-			float exposureLevel = 2; //db TODO: Change this for caluclation based on the trace
+			float exposureLevel = 2 * timeSlice; //db TODO: Change this for caluclation based on the trace
 			
 			m_fRadiationPoisoningLevel += exposureLevel;
 		}
