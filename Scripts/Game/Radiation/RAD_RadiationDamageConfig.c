@@ -1,4 +1,4 @@
-[BaseContainerProps()]
+[BaseContainerProps(configRoot: true)]
 class RAD_RadiationDamageConfig : Managed
 {
 	[Attribute(defvalue: "300", desc: "[seconds] How long does it take to kill the character from full health when they have the radiation poisoning level of 1.")]

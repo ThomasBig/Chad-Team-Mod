@@ -122,9 +122,8 @@ $grp GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
     DamageAreas {
      RAD_RadiationDamageArea "{69FACA6BF99FB37F}" {
       m_DamageEffect RAD_RadiationDamageEffect "{69FADD0942EFA371}" {
-       m_RadiationDamageConfiguration RAD_RadiationDamageConfig "{69FCC86A7ACD8D5D}" {
-       }
       }
+      m_fEmissionRate 1
      }
     }
    }
@@ -138,10 +137,8 @@ $grp GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
      RAD_RadiationDamageArea "{69FACA6BF99FB37F}" {
       m_fDamageValue 1
       m_DamageEffect RAD_RadiationDamageEffect "{69FADD0942EFA371}" {
-       m_RadiationDamageConfiguration RAD_RadiationDamageConfig "{69FCC86A782DC52E}" {
-       }
       }
-      m_fEmissionRate 0.01
+      m_fEmissionRate 1
      }
     }
    }
@@ -154,9 +151,8 @@ $grp GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
     DamageAreas {
      RAD_RadiationDamageArea "{69FACA6BF99FB37F}" {
       m_DamageEffect RAD_RadiationDamageEffect "{69FADD0942EFA371}" {
-       m_RadiationDamageConfiguration RAD_RadiationDamageConfig "{69FCC86A797AD252}" {
-       }
       }
+      m_fEmissionRate 1
      }
     }
    }
