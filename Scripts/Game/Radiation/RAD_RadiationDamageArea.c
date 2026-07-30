@@ -60,7 +60,7 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 			RAD_RadiationDamageEffect radiationDamage;
 			if (!allHitzonesAffected.Contains(hitZone))
 			{
-				radiationDamage = new RAD_RadiationDamageEffect;
+				radiationDamage = RAD_RadiationDamageEffect.Cast(GetDamageEffect());
 				radiationDamage.SetAffectedHitZone(hitZone);
 				damageManagerExt.AddDamageEffect(radiationDamage);
 			}
