@@ -120,6 +120,16 @@ $grp GenericEntity : "{1B6FE70AA85D755C}Prefabs/RadiationEmitter.et" {
   coords 5789.302 5.023 9682.313
  }
  {
+  components {
+   SCR_DamageAreaComponent "{69FACA6BF0FAB073}" {
+    DamageAreas {
+     RAD_RadiationDamageArea "{69FACA6BF99FB37F}" {
+      m_fDamageValue 1
+      m_fEmissionRate 0.01
+     }
+    }
+   }
+  }
   coords 5896.162 4.562 9727.844
  }
  {
