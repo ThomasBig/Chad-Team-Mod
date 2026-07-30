@@ -3,6 +3,8 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 	[Attribute()]
 	float m_fEmissionRate;
 	
+	AudioHandle m_SoundHandle = AudioHandle.Invalid;
+	
 	//------------------------------------------------------------------------------------------------
 	//! \return
 	override bool IsRegisteredAutomatically()
@@ -12,12 +14,20 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 	
 	protected void PlaySound()
 	{	
-		SoundComponent soundComp = SoundComponent.Cast(GetParent().FindComponent(SoundComponent));
-		 
+		SoundComponent soundComp = SoundComponent.Cast(GetParent().FindComponent(SoundComponent));		 
 		if (!soundComp)
 		    return;
 		 
-		soundComp.SoundEvent("SOUND_RADIATION");
+		m_SoundHandle = soundComp.SoundEvent("SOUND_RADIATION");
+	}
+	
+	protected void StopSound()
+	{
+		SoundComponent soundComp = SoundComponent.Cast(GetParent().FindComponent(SoundComponent));		 
+		if (!soundComp || m_SoundHandle == AudioHandle.Invalid)
+		    return;
+		 
+		soundComp.Terminate(m_SoundHandle);
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -68,6 +78,7 @@ class RAD_RadiationDamageArea : SCR_DamageArea
 	//! \param[in] entity
 	override void OnAreaExit(IEntity entity)
 	{
+		StopSound();
 		SCR_ExtendedDamageManagerComponent damageManagerExt = SCR_ExtendedDamageManagerComponent.Cast(SCR_DamageManagerComponent.GetDamageManager(entity));
 		if (!damageManagerExt)
 			return;
